@@ -1,0 +1,33 @@
+{
+	"name":"phpgram/framework",
+	"license": "MIT",
+	"version": "1.0.0",
+	"description": "A part fo the phpgram project build on top of phpgram",
+	"authors": [
+		{
+			"name": "Jörn Heinemann",
+			"email": "j.heinemann1@web.de"
+		}
+	],
+	"keywords": [
+		"gram",
+		"phpgram",
+		"php",
+		"framework"
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"nyholm/psr7":"1.2.0",
+		"nyholm/psr7-server":"*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Gram\\Project\\":"src/"
+		}
+	},
+	"config": {
+        "preferred-install": {
+            "*": "dist"
+        }
+    }
+}

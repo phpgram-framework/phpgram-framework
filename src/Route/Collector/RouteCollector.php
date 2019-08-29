@@ -7,11 +7,11 @@ class RouteCollector
 	private static $_instance,$_collector;
 
 	public static function add($route,$controller,$method='get'){
-		return self::route()->add($route,App::$options['routing']['namespace']['controller'].$controller,$method);
+		return self::route()->add($route,App::$options['routing']['namespace']['controller'].$controller,"web",$method);
 	}
 
 	public static function api($route,$controller,$method='get'){
-		return self::route()->api($route,App::$options['routing']['namespace']['controller'].$controller,$method);
+		return self::route()->add($route,App::$options['routing']['namespace']['controller'].$controller,"api",$method);
 	}
 
 	public static function addGroup($prefix, callable $callback){

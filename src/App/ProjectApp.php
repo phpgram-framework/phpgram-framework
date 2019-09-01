@@ -16,42 +16,46 @@ class ProjectApp
 		$request=new ServerRequestCreator($psr17Factory,$psr17Factory,$psr17Factory,$psr17Factory);
 		$request=$request->fromGlobals();
 
-		App::init($psr17Factory,$psr17Factory)->start($request);
+		App::setFactory($psr17Factory,$psr17Factory);
+
+		App::init()->start($request);
 	}
 
-	public static function init(array $options=array()) {
+	public static function init(array $options=[]) {
 		if(!isset(self::$_instance)) {
 			self::$_instance = new self();
 		}
 
-		//setze default werte
-		$options += array(
-			'routing'=>array(
-				'namespace'=>array(
-					'controller'=>"",
-					'middle'=>""
-				)
-			),
-			'view'=>array(
-				'templates'=>"",
-				'viewCache'=>""
-			),
-			'db'=>array(
-				'host'=>"",
-				'dbname'=>"",
-				'charset'=>"",
-				'user'=>"",
-				'pw'=>""
-			),
-			'lang'=>array(
-				'textpath'=>"",
-			),
-			'cookie'=>array(
-				'cookieExp'=>strtotime('+30 days')
-			)
-		);
+		if(!empty($options)){
+			//setze default werte
+			$options += [
+				'routing'=>[
+					'namespace'=>[
+						'controller'=>"",
+						'middle'=>""
+					]
+				],
+				'view'=>[
+					'templates'=>"",
+					'viewCache'=>""
+				],
+				'db'=>[
+					'host'=>"",
+					'dbname'=>"",
+					'charset'=>"",
+					'user'=>"",
+					'pw'=>""
+				],
+				'lang'=>[
+					'textpath'=>"",
+				],
+				'cookie'=>[
+					'cookieExp'=>strtotime('+30 days')
+				]
+			];
 
-		self::$options=$options;
+			self::$options=$options;
+		}
 
 		return self::$_instance;
 	}

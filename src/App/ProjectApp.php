@@ -1,5 +1,6 @@
 <?php
 namespace Gram\Project\App;
+use Gram\Strategy\StrategyInterface;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 
@@ -9,7 +10,8 @@ class ProjectApp
 	public static $options;
 	private static $_instance;
 
-	public function start(){
+	public function start()
+	{
 		//psr 7
 		$psr17Factory=new Psr17Factory();
 
@@ -18,10 +20,11 @@ class ProjectApp
 
 		App::setFactory($psr17Factory,$psr17Factory);
 
-		App::init()->start($request);
+		App::app()->start($request);
 	}
 
-	public static function init(array $options=[]) {
+	public static function init(array $options=[],array $appOptions=[], StrategyInterface $strategy=null)
+	{
 		if(!isset(self::$_instance)) {
 			self::$_instance = new self();
 		}
@@ -55,6 +58,14 @@ class ProjectApp
 			];
 
 			self::$options=$options;
+		}
+
+		if(!empty($appOptions)){
+			App::setOptions($appOptions);
+		}
+
+		if(isset($strategy)){
+			App::setStrategy($strategy);
 		}
 
 		return self::$_instance;

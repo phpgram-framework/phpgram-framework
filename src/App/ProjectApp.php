@@ -1,10 +1,30 @@
 <?php
+/**
+ * phpgram project
+ *
+ * This File is part of the phpgram Mvc Frmaework
+ *
+ * Web: https://gitlab.com/grammm/php-gram/phpgram-framework
+ *
+ * @license https://gitlab.com/grammm/php-gram/phpgram/blob/master/LICENSE
+ *
+ * @author Jörn Heinemann <j.heinemann1@web.de>
+ */
+
 namespace Gram\Project\App;
+
 use Gram\Strategy\StrategyInterface;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 
 use Gram\App\App;
+
+/**
+ * Class ProjectApp
+ * @package Gram\Project\App
+ *
+ * Startet die App und setzt Optionen
+ */
 class ProjectApp
 {
 	public static $options;
@@ -18,12 +38,12 @@ class ProjectApp
 		$request=new ServerRequestCreator($psr17Factory,$psr17Factory,$psr17Factory,$psr17Factory);
 		$request=$request->fromGlobals();
 
-		App::setFactory($psr17Factory,$psr17Factory);
+		App::app()->setFactory($psr17Factory,$psr17Factory);
 
 		App::app()->start($request);
 	}
 
-	public static function init(array $options=[],array $appOptions=[], StrategyInterface $strategy=null)
+	public static function init(array $options=[])
 	{
 		if(!isset(self::$_instance)) {
 			self::$_instance = new self();
@@ -60,14 +80,16 @@ class ProjectApp
 			self::$options=$options;
 		}
 
-		if(!empty($appOptions)){
-			App::setOptions($appOptions);
-		}
-
-		if(isset($strategy)){
-			App::setStrategy($strategy);
-		}
-
 		return self::$_instance;
+	}
+
+	public static function setRouteOptons(array $routeOptions=[])
+	{
+		App::app()->setOptions($routeOptions);
+	}
+
+	public static function setStrategy(StrategyInterface $strategy=null)
+	{
+		App::app()->setStrategy($strategy);
 	}
 }

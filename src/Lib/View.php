@@ -122,7 +122,6 @@ class View
         
         if(!$cached){
             extract($variables);
-            debug_console("Variablen extrct");
         }
 
         //startet den Output Buffer: bis zu clean() wird alles gesammelt und nicht ausgegeben
@@ -143,8 +142,6 @@ class View
         	$fh=fopen($file, 'w');
             fwrite($fh,$renderedView);
             fclose($fh);
-
-            debug_console("Cache erstellt für: ". $file);
         }
         
         return $renderedView;

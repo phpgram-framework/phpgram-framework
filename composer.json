@@ -15,7 +15,6 @@
 		"php",
 		"framework"
 	],
-	"minimum-stability": "dev",
 	"require": {
 		"nyholm/psr7":"1.2.0",
 		"nyholm/psr7-server":"*"

@@ -1,41 +1,48 @@
 <?php
+/**
+ * phpgram project
+ *
+ * This File is part of the phpgram Mvc Frmaework
+ *
+ * Web: https://gitlab.com/grammm/php-gram/phpgram-framework
+ *
+ * @license https://gitlab.com/grammm/php-gram/phpgram/blob/master/LICENSE
+ *
+ * @author Jörn Heinemann <j.heinemann1@web.de>
+ */
+
 namespace Gram\Project\Route\Collector;
+
 use Gram\Project\App\ProjectApp;
 use Gram\App\App;
 
+/**
+ * Class RouteCollector
+ * @package Gram\Project\Route\Collector
+ *
+ * Fügt neue Routes zu phpgram hinzu
+ *
+ * Fügt auch noch den Namespace Controller Namespace hinzu
+ */
 class RouteCollector
 {
-	private static $_collector;
-
 	public static function add($route,$controller,$method=['get'])
 	{
-		return self::route()->add($route,ProjectApp::$options['routing']['namespace']['controller'].$controller,$method);
+		return App::app()->add($route,ProjectApp::$options['routing']['namespace']['controller'].$controller,$method);
 	}
 
 	public static function addGroup($prefix, callable $callback)
 	{
-		return self::route()->addGroup($prefix,$callback);
+		return App::app()->addGroup($prefix,$callback);
 	}
 
 	public static function notFound($controller)
 	{
-		return self::route()->set404(ProjectApp::$options['routing']['namespace']['controller'].$controller);
+		App::app()->set404(ProjectApp::$options['routing']['namespace']['controller'].$controller);
 	}
 
 	public static function notAllowed($controller)
 	{
-		return self::route()->set405(ProjectApp::$options['routing']['namespace']['controller'].$controller);
-	}
-
-	/**
-	 * Gibt das aktuelle Objekt zurück
-	 */
-	public static function route()
-	{
-		if(!isset(self::$_collector)) {
-			self::$_collector=App::app()->getRouter()->getCollector();
-		}
-
-		return self::$_collector;
+		App::app()->set405(ProjectApp::$options['routing']['namespace']['controller'].$controller);
 	}
 }

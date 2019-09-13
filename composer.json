@@ -16,6 +16,7 @@
 		"framework"
 	],
 	"require": {
+		"php": "^7.1",
 		"nyholm/psr7":"1.2.0",
 		"nyholm/psr7-server":"*"
 	},

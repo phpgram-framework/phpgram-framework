@@ -1,7 +1,6 @@
 {
 	"name":"phpgram/framework",
 	"license": "MIT",
-	"version": "1.0.0",
 	"description": "A part fo the phpgram project build on top of phpgram",
 	"authors": [
 		{
@@ -17,6 +16,7 @@
 	],
 	"require": {
 		"php": "^7.1",
+		"phpgram/phpgram":"*",
 		"nyholm/psr7":"1.2.0",
 		"nyholm/psr7-server":"*"
 	},

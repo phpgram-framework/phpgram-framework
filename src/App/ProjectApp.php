@@ -11,7 +11,7 @@
  * @author Jörn Heinemann <j.heinemann1@web.de>
  */
 
-/** @version 1.0.0 */
+/** @version 1.0.1 */
 
 namespace Gram\Project\App;
 
@@ -146,6 +146,16 @@ class ProjectApp
 	public static function head($route,$controller)
 	{
 		return App::app()->head($route,self::$namespace.$controller);
+	}
+
+	public static function options($route,$controller)
+	{
+		return App::app()->options($route,self::$namespace.$controller);
+	}
+
+	public static function any($route,$controller)
+	{
+		return App::app()->any($route,self::$namespace.$controller);
 	}
 
 	public static function setBase(string $base)

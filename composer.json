@@ -23,7 +23,10 @@
 	"autoload": {
 		"psr-4": {
 			"Gram\\Project\\":"src/"
-		}
+		},
+		"files": [
+			"src/functions/gramHelpers.php"
+		]
 	},
 	"config": {
         "preferred-install": {

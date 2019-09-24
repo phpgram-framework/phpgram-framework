@@ -11,16 +11,16 @@
  * @author Jörn Heinemann <j.heinemann1@web.de>
  */
 
-/** @version 1.0.2 */
+/** @version 1.0.3 */
 
 namespace Gram\Project\App;
 
-use Gram\CallbackCreator\CallbackCreatorInterface;
+use Gram\ResolverCreator\ResolverCreatorInterface;
 use Gram\Strategy\StrategyInterface;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
-
 use Gram\App\App;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class ProjectApp
@@ -88,9 +88,14 @@ class ProjectApp
 		App::app()->setOptions($routeOptions);
 	}
 
-	public static function setCallbackCreator(CallbackCreatorInterface $creator=null)
+	public static function setResolverCreator(ResolverCreatorInterface $creator=null)
 	{
-		App::app()->setCallbackCreator($creator);
+		App::app()->setResolverCreator($creator);
+	}
+
+	public static function setContainer(ContainerInterface $container)
+	{
+		App::app()->setContainer($container);
 	}
 
 	public static function setStrategy(StrategyInterface $strategy=null)

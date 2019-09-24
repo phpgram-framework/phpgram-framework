@@ -11,7 +11,7 @@
  * @author Jörn Heinemann <j.heinemann1@web.de>
  */
 
-/** @version 1.0.3 */
+/** @version 1.0.4 */
 
 namespace Gram\Project\App;
 
@@ -31,7 +31,7 @@ use Psr\Container\ContainerInterface;
 class ProjectApp
 {
 	public static $options;
-	private static $_instance,$namespace="";
+	private static $_instance;
 
 	public function start()
 	{
@@ -103,11 +103,6 @@ class ProjectApp
 		App::app()->setStrategy($strategy);
 	}
 
-	public static function setNamespace($namespace)
-	{
-		self::$namespace=$namespace;
-	}
-
 	public static function addGroup($prefix, callable $callback)
 	{
 		return App::app()->addGroup($prefix,$callback);
@@ -115,52 +110,52 @@ class ProjectApp
 
 	public static function add($route,$controller,$method)
 	{
-		return App::app()->add($route,self::$namespace.$controller,$method);
+		return App::app()->add($route,$controller,$method);
 	}
 
 	public static function get($route,$controller)
 	{
-		return App::app()->get($route,self::$namespace.$controller);
+		return App::app()->get($route,$controller);
 	}
 
 	public static function post($route,$controller)
 	{
-		return App::app()->post($route,self::$namespace.$controller);
+		return App::app()->post($route,$controller);
 	}
 
 	public static function getpost($route,$controller)
 	{
-		return App::app()->getpost($route,self::$namespace.$controller);
+		return App::app()->getpost($route,$controller);
 	}
 
 	public static function delete($route,$controller)
 	{
-		return App::app()->delete($route,self::$namespace.$controller);
+		return App::app()->delete($route,$controller);
 	}
 
 	public static function put($route,$controller)
 	{
-		return App::app()->put($route,self::$namespace.$controller);
+		return App::app()->put($route,$controller);
 	}
 
 	public static function patch($route,$controller)
 	{
-		return App::app()->patch($route,self::$namespace.$controller);
+		return App::app()->patch($route,$controller);
 	}
 
 	public static function head($route,$controller)
 	{
-		return App::app()->head($route,self::$namespace.$controller);
+		return App::app()->head($route,$controller);
 	}
 
 	public static function options($route,$controller)
 	{
-		return App::app()->options($route,self::$namespace.$controller);
+		return App::app()->options($route,$controller);
 	}
 
 	public static function any($route,$controller)
 	{
-		return App::app()->any($route,self::$namespace.$controller);
+		return App::app()->any($route,$controller);
 	}
 
 	public static function setBase(string $base)
@@ -170,11 +165,11 @@ class ProjectApp
 
 	public static function notFound($controller)
 	{
-		App::app()->set404(self::$namespace.$controller);
+		App::app()->set404($controller);
 	}
 
 	public static function notAllowed($controller)
 	{
-		App::app()->set405(self::$namespace.$controller);
+		App::app()->set405($controller);
 	}
 }

@@ -26,7 +26,12 @@ use Psr\Container\ContainerInterface;
  * Class ProjectApp
  * @package Gram\Project\App
  *
- * Startet die App und setzt Optionen
+ * Factory für phpgram App
+ *
+ * Erstellt Request from globals mit Nyholm Psr
+ *
+ * Setzt zudem noch Mvc Options wenn die phpgram/framework-lib ebenfalls
+ * verwendet werden soll
  */
 class ProjectApp
 {

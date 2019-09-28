@@ -1,5 +1,5 @@
 {
-	"name":"phpgram/phpgram-factory",
+	"name":"phpgram/framework",
 	"license": "MIT",
 	"description": "A part fo the phpgram project build on top of phpgram",
 	"authors": [

@@ -65,17 +65,6 @@ class ProjectApp
 		if(!empty($options)){
 			//setze default werte
 			$options += [
-				'view'=>[
-					'templates'=>"",
-					'viewCache'=>""
-				],
-				'db'=>[
-					'host'=>"",
-					'dbname'=>"",
-					'charset'=>"",
-					'user'=>"",
-					'pw'=>""
-				],
 				'lang'=>[
 					'textpath'=>"",
 				],

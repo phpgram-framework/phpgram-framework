@@ -2,7 +2,7 @@
 /**
  * phpgram project
  *
- * This File is part of the phpgram Mvc Frmaework
+ * This File is part of the phpgram Mvc Framework
  *
  * Web: https://gitlab.com/grammm/php-gram/phpgram-framework
  *

@@ -1,10 +1,10 @@
 <?php
 /**
- * phpgram
+ * phpgram project
  *
- * This File is part of the phpgram Micro Framework
+ * This File is part of the phpgram Mvc Framework
  *
- * Web: https://gitlab.com/grammm/php-gram/phpgram
+ * Web: https://gitlab.com/grammm/php-gram/phpgram-framework
  *
  * @license https://gitlab.com/grammm/php-gram/phpgram/blob/master/LICENSE
  *

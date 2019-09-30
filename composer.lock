@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a04f8bfa0f297a2619aa852ea483c29c",
+    "content-hash": "e695570ef8d87f39b7c9a481affd4da2",
     "packages": [
         {
             "name": "nyholm/psr7",
@@ -172,16 +172,16 @@
         },
         {
             "name": "phpgram/phpgram",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "4545f12beace794f7a7b5e67485993c7c0866dd5"
+                "reference": "1ae26cdf1955c7c44534e2e296a2bbcc55db46db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=4545f12beace794f7a7b5e67485993c7c0866dd5",
-                "reference": "4545f12beace794f7a7b5e67485993c7c0866dd5",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=1ae26cdf1955c7c44534e2e296a2bbcc55db46db",
+                "reference": "1ae26cdf1955c7c44534e2e296a2bbcc55db46db",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,8 @@
             "require-dev": {
                 "nyholm/psr7": "^1.2.1",
                 "nyholm/psr7-server": "^0.3.0",
-                "phpunit/phpunit": "^8"
+                "phpunit/phpunit": "8.3.5",
+                "pimple/pimple": "3.2.3"
             },
             "type": "library",
             "extra": {
@@ -220,12 +221,19 @@
             ],
             "description": "A very fast and lightweight Php Framework for small to enterprise applications.",
             "keywords": [
+                "PSR 17",
                 "framework",
                 "gram",
+                "micro framework",
                 "php",
-                "phpgram"
+                "phpgram",
+                "psr 11",
+                "psr 15",
+                "psr 7",
+                "router",
+                "routing"
             ],
-            "time": "2019-09-24T16:25:08+00:00"
+            "time": "2019-09-28T16:38:20+00:00"
         },
         {
             "name": "psr/container",

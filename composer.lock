@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e695570ef8d87f39b7c9a481affd4da2",
+    "content-hash": "62c8397efda2598065dfc5eabaaf1452",
     "packages": [
         {
             "name": "nyholm/psr7",
@@ -172,16 +172,16 @@
         },
         {
             "name": "phpgram/phpgram",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "1ae26cdf1955c7c44534e2e296a2bbcc55db46db"
+                "reference": "8cc5badb1f1752b1dd3155dac502dd47fbfa783a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=1ae26cdf1955c7c44534e2e296a2bbcc55db46db",
-                "reference": "1ae26cdf1955c7c44534e2e296a2bbcc55db46db",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=8cc5badb1f1752b1dd3155dac502dd47fbfa783a",
+                "reference": "8cc5badb1f1752b1dd3155dac502dd47fbfa783a",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
             "authors": [
                 {
                     "name": "Jörn Heinemann",
-                    "email": "j.heinemann1@web.de"
+                    "email": "joernheinemann@gmx.de"
                 }
             ],
             "description": "A very fast and lightweight Php Framework for small to enterprise applications.",
@@ -233,7 +233,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2019-09-28T16:38:20+00:00"
+            "time": "2019-10-04T10:37:55+00:00"
         },
         {
             "name": "psr/container",

@@ -86,7 +86,7 @@ trait AppFactoryTrait
 		return App::app()->patch($route,$controller);
 	}
 
-	public function head($route,$controller)
+	public static function head($route,$controller)
 	{
 		return App::app()->head($route,$controller);
 	}

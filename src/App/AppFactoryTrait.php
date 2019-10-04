@@ -86,6 +86,11 @@ trait AppFactoryTrait
 		return App::app()->patch($route,$controller);
 	}
 
+	public function head($route,$controller)
+	{
+		return App::app()->head($route,$controller);
+	}
+
 	public static function options($route,$controller)
 	{
 		return App::app()->options($route,$controller);

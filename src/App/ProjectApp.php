@@ -66,9 +66,6 @@ class ProjectApp
 			$options += [
 				'lang'=>[
 					'textpath'=>"",
-				],
-				'cookie'=>[
-					'cookieExp'=>strtotime('+30 days')
 				]
 			];
 

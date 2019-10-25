@@ -2,7 +2,7 @@
 /**
  * phpgram project
  *
- * This File is part of the phpgram Mvc Framework
+ * This File is part of the phpgram Framework
  *
  * Web: https://gitlab.com/grammm/php-gram/phpgram-framework
  *
@@ -26,6 +26,19 @@ use Psr\Container\ContainerInterface;
  */
 trait AppFactoryTrait
 {
+	private static $_instance;
+
+	abstract function start();
+
+	public static function init()
+	{
+		if(!isset(self::$_instance)) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
+
 	public static function setRouteOptons(array $routeOptions=[])
 	{
 		App::app()->setOptions($routeOptions);

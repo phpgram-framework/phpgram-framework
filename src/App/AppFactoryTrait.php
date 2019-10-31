@@ -56,9 +56,9 @@ trait AppFactoryTrait
 		return self::$_instance;
 	}
 
-	public static function setRouteOptons(array $routeOptions=[])
+	public static function setRouterOptions(array $routeOptions=[])
 	{
-		self::app()->setOptions($routeOptions);
+		self::app()->setRouterOptions($routeOptions);
 	}
 
 	public static function setResolverCreator(ResolverCreatorInterface $creator=null)

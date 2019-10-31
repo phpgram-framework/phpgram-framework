@@ -28,6 +28,23 @@ trait AppFactoryTrait
 {
 	private static $_instance;
 
+	/** @var App */
+	protected static $gram;
+
+	public static function setApp(App $app)
+	{
+		self::$gram = $app;
+	}
+
+	protected static function app():App
+	{
+		if(self::$gram==null){
+			self::$gram = App::app();
+		}
+
+		return self::$gram;
+	}
+
 	abstract function start();
 
 	public static function init()
@@ -41,91 +58,91 @@ trait AppFactoryTrait
 
 	public static function setRouteOptons(array $routeOptions=[])
 	{
-		App::app()->setOptions($routeOptions);
+		self::app()->setOptions($routeOptions);
 	}
 
 	public static function setResolverCreator(ResolverCreatorInterface $creator=null)
 	{
-		App::app()->setResolverCreator($creator);
+		self::app()->setResolverCreator($creator);
 	}
 
 	public static function setContainer(ContainerInterface $container)
 	{
-		App::app()->setContainer($container);
+		self::app()->setContainer($container);
 	}
 
 	public static function setStrategy(StrategyInterface $strategy=null)
 	{
-		App::app()->setStrategy($strategy);
+		self::app()->setStrategy($strategy);
 	}
 
 	public static function addGroup($prefix, callable $callback)
 	{
-		return App::app()->addGroup($prefix,$callback);
+		return self::app()->addGroup($prefix,$callback);
 	}
 
 	public static function add($route,$controller,$method)
 	{
-		return App::app()->add($route,$controller,$method);
+		return self::app()->add($route,$controller,$method);
 	}
 
 	public static function get($route,$controller)
 	{
-		return App::app()->get($route,$controller);
+		return self::app()->get($route,$controller);
 	}
 
 	public static function post($route,$controller)
 	{
-		return App::app()->post($route,$controller);
+		return self::app()->post($route,$controller);
 	}
 
 	public static function getpost($route,$controller)
 	{
-		return App::app()->getpost($route,$controller);
+		return self::app()->getpost($route,$controller);
 	}
 
 	public static function delete($route,$controller)
 	{
-		return App::app()->delete($route,$controller);
+		return self::app()->delete($route,$controller);
 	}
 
 	public static function put($route,$controller)
 	{
-		return App::app()->put($route,$controller);
+		return self::app()->put($route,$controller);
 	}
 
 	public static function patch($route,$controller)
 	{
-		return App::app()->patch($route,$controller);
+		return self::app()->patch($route,$controller);
 	}
 
 	public static function head($route,$controller)
 	{
-		return App::app()->head($route,$controller);
+		return self::app()->head($route,$controller);
 	}
 
 	public static function options($route,$controller)
 	{
-		return App::app()->options($route,$controller);
+		return self::app()->options($route,$controller);
 	}
 
 	public static function any($route,$controller)
 	{
-		return App::app()->any($route,$controller);
+		return self::app()->any($route,$controller);
 	}
 
 	public static function setBase(string $base)
 	{
-		App::app()->setBase($base);
+		self::app()->setBase($base);
 	}
 
 	public static function notFound($controller)
 	{
-		App::app()->set404($controller);
+		self::app()->set404($controller);
 	}
 
 	public static function notAllowed($controller)
 	{
-		App::app()->set405($controller);
+		self::app()->set405($controller);
 	}
 }

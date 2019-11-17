@@ -17,7 +17,6 @@ namespace Gram\Project\App;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
-use Gram\App\App as Phpgram;
 
 /**
  * Class AppFactory
@@ -42,8 +41,8 @@ class AppFactory
 		$request=new ServerRequestCreator($psr17Factory,$psr17Factory,$psr17Factory,$psr17Factory);
 		$request=$request->fromGlobals();
 
-		Phpgram::app()->setFactory($psr17Factory,$psr17Factory);
+		self::app()->setFactory($psr17Factory,$psr17Factory);
 
-		Phpgram::app()->start($request);
+		self::app()->start($request);
 	}
 }

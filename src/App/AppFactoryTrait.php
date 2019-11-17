@@ -145,4 +145,9 @@ trait AppFactoryTrait
 	{
 		self::app()->set405($controller);
 	}
+
+	public static function stdMiddleware($middleware)
+	{
+		self::app()->addMiddle($middleware);
+	}
 }

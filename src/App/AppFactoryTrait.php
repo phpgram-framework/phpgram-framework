@@ -11,6 +11,8 @@
  * @author Jörn Heinemann <joernheinemann@gmx.de>
  */
 
+/** @version 1.2.0 */
+
 namespace Gram\Project\App;
 
 use Gram\App\App;
@@ -31,6 +33,11 @@ trait AppFactoryTrait
 	/** @var App */
 	protected static $gram;
 
+	/**
+	 * Setze die App der die Einstellungen zugerechnet werden sollen
+	 *
+	 * @param App $app
+	 */
 	public static function setApp(App $app)
 	{
 		self::$gram = $app;
@@ -45,7 +52,19 @@ trait AppFactoryTrait
 		return self::$gram;
 	}
 
+	/**
+	 * Startet die App für normale Requests
+	 *
+	 * @return mixed
+	 */
 	abstract function start();
+
+	/**
+	 * Bereitet den Start der App vor für Async Requests
+	 *
+	 * @return App
+	 */
+	abstract function asyncStart():App;
 
 	public static function init()
 	{
@@ -54,6 +73,11 @@ trait AppFactoryTrait
 		}
 
 		return self::$_instance;
+	}
+
+	public static function getResponseCreator()
+	{
+		return self::app()->getResponseCreator();
 	}
 
 	public static function setRouterOptions(array $routeOptions=[])

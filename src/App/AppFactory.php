@@ -11,10 +11,11 @@
  * @author Jörn Heinemann <joernheinemann@gmx.de>
  */
 
-/** @version 1.1.0 */
+/** @version 1.2.0 */
 
 namespace Gram\Project\App;
 
+use Gram\App\App;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 
@@ -44,5 +45,15 @@ class AppFactory
 		self::app()->setFactory($psr17Factory,$psr17Factory);
 
 		self::app()->start($request);
+	}
+
+	public function asyncStart():App
+	{
+		//psr 7
+		$psr17Factory=new Psr17Factory();
+		self::app()->setFactory($psr17Factory,$psr17Factory);
+		self::app()->build();
+
+		return self::app();
 	}
 }

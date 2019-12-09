@@ -172,16 +172,16 @@
         },
         {
             "name": "phpgram/phpgram",
-            "version": "1.3.1",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "29d34e9e5dded541cbbb7f256dece53561a99bd7"
+                "reference": "ddae7d26d8b4614a6acf659f11e96a117f7e0d44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=29d34e9e5dded541cbbb7f256dece53561a99bd7",
-                "reference": "29d34e9e5dded541cbbb7f256dece53561a99bd7",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=ddae7d26d8b4614a6acf659f11e96a117f7e0d44",
+                "reference": "ddae7d26d8b4614a6acf659f11e96a117f7e0d44",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -235,7 +235,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2019-11-05T13:17:09+00:00"
+            "time": "2019-12-09T22:43:16+00:00"
         },
         {
             "name": "psr/container",

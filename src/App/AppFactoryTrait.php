@@ -100,6 +100,11 @@ trait AppFactoryTrait
 		self::app()->setStrategy($strategy);
 	}
 
+	public static function debugMode($type = 0)
+	{
+		self::app()->debugMode($type);
+	}
+
 	public static function addGroup($prefix, callable $callback)
 	{
 		return self::app()->addGroup($prefix,$callback);

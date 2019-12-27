@@ -105,9 +105,21 @@ trait AppFactoryTrait
 		self::app()->debugMode($type);
 	}
 
+	/**
+	 * @deprecated Legacy Way use @see group() instead
+	 *
+	 * @param $prefix
+	 * @param callable $callback
+	 * @return mixed
+	 */
 	public static function addGroup($prefix, callable $callback)
 	{
-		return self::app()->addGroup($prefix,$callback);
+		return self::app()->group($prefix,$callback);
+	}
+
+	public static function group($prefix, callable $callback)
+	{
+		return self::app()->group($prefix,$callback);
 	}
 
 	public static function add($route,$controller,$method)

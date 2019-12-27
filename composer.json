@@ -1,7 +1,7 @@
 {
 	"name":"phpgram/framework",
 	"license": "MIT",
-	"description": "A part fo the phpgram project build on top of phpgram",
+	"description": "A factory for phpgram. Uses nyholm/psr7",
 	"authors": [
 		{
 			"name": "Jörn Heinemann",
@@ -23,14 +23,6 @@
 	"autoload": {
 		"psr-4": {
 			"Gram\\Project\\":"src/"
-		},
-		"files": [
-			"src/functions/gramHelpers.php"
-		]
-	},
-	"config": {
-        "preferred-install": {
-            "*": "dist"
-        }
-    }
+		}
+	}
 }

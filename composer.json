@@ -16,7 +16,7 @@
 	],
 	"require": {
 		"php": "^7.1",
-		"phpgram/phpgram":"1.*",
+		"phpgram/phpgram":"^1.5.0",
 		"nyholm/psr7":"1.2.0",
 		"nyholm/psr7-server":"^0.3.0"
 	},

@@ -42,7 +42,7 @@ class AppFactory
 		$request=new ServerRequestCreator($psr17Factory,$psr17Factory,$psr17Factory,$psr17Factory);
 		$request=$request->fromGlobals();
 
-		self::app()->setFactory($psr17Factory,$psr17Factory);
+		self::app()->setFactory($psr17Factory);
 
 		self::app()->start($request);
 	}
@@ -51,7 +51,7 @@ class AppFactory
 	{
 		//psr 7
 		$psr17Factory=new Psr17Factory();
-		self::app()->setFactory($psr17Factory,$psr17Factory);
+		self::app()->setFactory($psr17Factory);
 		self::app()->build();
 
 		return self::app();

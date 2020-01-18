@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24998541cdb3bcfceea4495f4887d108",
+    "content-hash": "447ad1fd9f8d6cd4baa9c15df75af4e0",
     "packages": [
         {
             "name": "nyholm/psr7",
@@ -172,16 +172,16 @@
         },
         {
             "name": "phpgram/phpgram",
-            "version": "1.5.0",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "9e548dfcab1e70ae9aa9f1af4e2c86463621cdec"
+                "reference": "2d8ebf5562849b2b2040a1e3a166ca41a540908a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=9e548dfcab1e70ae9aa9f1af4e2c86463621cdec",
-                "reference": "9e548dfcab1e70ae9aa9f1af4e2c86463621cdec",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=2d8ebf5562849b2b2040a1e3a166ca41a540908a",
+                "reference": "2d8ebf5562849b2b2040a1e3a166ca41a540908a",
                 "shasum": ""
             },
             "require": {
@@ -222,12 +222,16 @@
             "description": "A very fast and lightweight Php Framework for small to enterprise applications. Also supports Asynchronous Requests",
             "keywords": [
                 "PSR 17",
+                "api",
                 "async",
                 "asynchronous",
                 "di container",
                 "framework",
+                "frameworks",
                 "gram",
+                "micro",
                 "micro framework",
+                "micro frameworks",
                 "middleware",
                 "php",
                 "phpgram",
@@ -237,7 +241,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2019-12-29T17:37:27+00:00"
+            "time": "2020-01-18T13:27:09+00:00"
         },
         {
             "name": "psr/container",

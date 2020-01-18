@@ -189,6 +189,6 @@ trait AppFactoryTrait
 
 	public static function stdMiddleware($middleware)
 	{
-		self::app()->addMiddle($middleware);
+		self::app()->addMiddleware($middleware);
 	}
 }

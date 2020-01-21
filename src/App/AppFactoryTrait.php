@@ -11,7 +11,7 @@
  * @author Jörn Heinemann <joernheinemann@gmx.de>
  */
 
-/** @version 1.2.3 */
+/** @version 1.2.4 */
 
 namespace Gram\Project\App;
 
@@ -100,7 +100,7 @@ trait AppFactoryTrait
 		self::app()->setStrategy($strategy);
 	}
 
-	public static function debugMode($type = 0)
+	public static function debugMode($type = true)
 	{
 		self::app()->debugMode($type);
 	}

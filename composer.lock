@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "447ad1fd9f8d6cd4baa9c15df75af4e0",
+    "content-hash": "942bb39ab5301e69d6b816b36f14b102",
     "packages": [
         {
             "name": "nyholm/psr7",
@@ -172,16 +172,16 @@
         },
         {
             "name": "phpgram/phpgram",
-            "version": "1.5.3",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "2d8ebf5562849b2b2040a1e3a166ca41a540908a"
+                "reference": "cc5eb93bb976a2cd1015b4ca3c5b91291dffcf7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=2d8ebf5562849b2b2040a1e3a166ca41a540908a",
-                "reference": "2d8ebf5562849b2b2040a1e3a166ca41a540908a",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=cc5eb93bb976a2cd1015b4ca3c5b91291dffcf7e",
+                "reference": "cc5eb93bb976a2cd1015b4ca3c5b91291dffcf7e",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -233,7 +233,6 @@
                 "micro framework",
                 "micro frameworks",
                 "middleware",
-                "php",
                 "phpgram",
                 "psr 11",
                 "psr 15",
@@ -241,7 +240,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2020-01-18T13:27:09+00:00"
+            "time": "2020-01-23T15:15:36+00:00"
         },
         {
             "name": "psr/container",

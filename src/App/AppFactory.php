@@ -11,7 +11,7 @@
  * @author Jörn Heinemann <joernheinemann@gmx.de>
  */
 
-/** @version 2.0.0 */
+/** @version 2.0.1 */
 
 namespace Gram\Project\App;
 
@@ -19,49 +19,21 @@ use Gram\App\App;
 use Gram\ResolverCreator\ResolverCreatorInterface;
 use Gram\Strategy\StrategyInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class AppFactory
  * @package Gram\Project\App
  *
- * Factory für phpgram App
+ * Singleton factory für phpgram App
  *
  * Hier kann auch eine andere App Class verwendet werden
  */
 class AppFactory
 {
-	private static $_instance;
-
 	/** @var App */
 	protected static $gram;
-
-	/** @var Psr7GramBridge */
-	private static $bridge;
-
-	/**
-	 * Startet die App für normale Requests
-	 *
-	 * @return void
-	 */
-	public function start()
-	{
-		self::app()->setFactory(self::$bridge->getPsr17ResponseFactory());
-
-		self::app()->start(self::$bridge->createPsr7Request());
-	}
-
-	/**
-	 * Bereitet den Start der App vor für Async Requests
-	 *
-	 * @return App
-	 */
-	public function asyncStart(): App
-	{
-		self::app()->setFactory(self::$bridge->getPsr17ResponseFactory());
-		self::app()->build();
-
-		return self::app();
-	}
 
 	/**
 	 * Setze die App der die Einstellungen zugerechnet werden sollen
@@ -82,25 +54,36 @@ class AppFactory
 		return self::$gram;
 	}
 
-	public static function init()
+	/**
+	 * Starte die App
+	 *
+	 * @param ServerRequestInterface $request
+	 */
+	public static function start(ServerRequestInterface $request)
 	{
-		if(!isset(self::$_instance)) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
+		self::app()->start($request);
 	}
 
 	/**
-	 * Bestimmte wie Psr 7 Requests erstellt werden
+	 * Bereite die App auf Async Requests vor
 	 *
-	 * und welche Psr 17 Factory genutzt werden soll
-	 *
-	 * @param Psr7GramBridge $bridge
+	 * @return App
 	 */
-	public static function setPsrBridge(Psr7GramBridge $bridge)
+	public static function asyncStart(): App
 	{
-		self::$bridge = $bridge;
+		self::app()->build();
+
+		return self::app();
+	}
+
+	/**
+	 * Bestimmte wie Psr 7 Response erstellt werden
+	 *
+	 * @param ResponseFactoryInterface $responseFactory
+	 */
+	public static function setResponseFactory(ResponseFactoryInterface $responseFactory)
+	{
+		self::app()->setFactory($responseFactory);
 	}
 
 	/**

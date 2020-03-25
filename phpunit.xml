@@ -1,0 +1,17 @@
+<phpunit
+	cacheResult="false"
+	colors="true"
+	stopOnFailure="false"
+	>
+	<testsuites>
+		<testsuite name="gram">
+			<directory>test</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="false">
+			<directory>src</directory>
+		</whitelist>
+	</filter>
+</phpunit>

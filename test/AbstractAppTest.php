@@ -4,6 +4,7 @@ namespace Gram\Project\Test;
 use Gram\Middleware\ResponseCreator;
 use Gram\Project\App\AppFactory as App;
 use Gram\Project\Test\TestClasses\CallableClass;
+use Gram\Strategy\StdAppStrategy;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 use PHPUnit\Framework\TestCase;
@@ -37,10 +38,20 @@ abstract class AbstractAppTest extends TestCase
 		$this->request = $creator->fromGlobals();
 
 		App::setResponseFactory($this->psr17);
+
+		App::setStrategy(new StdAppStrategy());
 	}
 
 	protected function iniRoutes()
 	{
+		App::notFound(function (){
+			return "Not Found";
+		});
+
+		App::notAllowed(function (){
+			return "Not Allowed";
+		});
+
 		App::group("/test",function (){
 			App::get("/first",function (){
 				return "1st";
@@ -59,6 +70,22 @@ abstract class AbstractAppTest extends TestCase
 			App::delete("/delete",function (){
 				return "delete";
 			});
+
+			App::put("/put",function (){
+				return "put";
+			});
+
+			App::options("/options",function (){
+				return "options";
+			});
+
+			App::patch("/patch",function (){
+				return "patch";
+			});
+
+			App::any("/any",function (){
+				return "any";
+			});
 		});
 	}
 
@@ -72,7 +99,12 @@ abstract class AbstractAppTest extends TestCase
 			'https://jo.com/test/first'=>["1st","GET"],
 			'https://jo.com/test/second'=>["false","POST"],
 			'https://jo.com/test/second/123'=>["123","POST"],
-			'https://jo.com/test/delete'=>["delete","DELETE"]
+			'https://jo.com/test/delete'=>["delete","DELETE"],
+			'https://jo.com/test/put'=>["put","PUT"],
+			'https://jo.com/test/options'=>["options","OPTIONS"],
+			'https://jo.com/test/patch'=>["patch","PATCH"],
+			'https://jo.com/test/any'=>["any","GET"],
+			'https://jo.com/test/notfound'=>["Not Found","GET"]
 		];
 
 		foreach ($uris as $uri=>$expect) {
@@ -112,8 +144,10 @@ abstract class AbstractAppTest extends TestCase
 		$response = $this->app->handle($request);
 
 		$status = $response->getStatusCode();
+		$body = $response->getBody()->__toString();
 
 		self::assertEquals("404",$status);
+		self::assertEquals("Not Found",$body);
 	}
 
 

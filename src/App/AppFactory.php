@@ -11,11 +11,13 @@
  * @author Jörn Heinemann <joernheinemann@gmx.de>
  */
 
-/** @version 2.0.1 */
+/** @version 2.1.0 */
 
 namespace Gram\Project\App;
 
 use Gram\App\App;
+use Gram\App\Route\Route;
+use Gram\App\Route\RouteGroup;
 use Gram\ResolverCreator\ResolverCreatorInterface;
 use Gram\Strategy\StrategyInterface;
 use Psr\Container\ContainerInterface;
@@ -47,7 +49,7 @@ class AppFactory
 
 	protected static function app(): App
 	{
-		if(self::$gram==null){
+		if(!isset(self::$gram)){
 			self::$gram = App::app();
 		}
 
@@ -61,7 +63,12 @@ class AppFactory
 	 */
 	public static function start(ServerRequestInterface $request)
 	{
-		self::app()->start($request);
+		/** @var \Psr\Http\Message\ResponseInterface $response */
+		$response = self::app()->start($request);
+
+		$emitter = new Emitter();
+
+		$emitter->emit($response);
 	}
 
 	/**
@@ -145,7 +152,7 @@ class AppFactory
 	 *
 	 * @param bool $type
 	 */
-	public static function debugMode($type = true)
+	public static function debugMode(bool $type = true)
 	{
 		self::app()->debugMode($type);
 	}
@@ -155,9 +162,9 @@ class AppFactory
 	 *
 	 * @param $prefix
 	 * @param callable $callback
-	 * @return mixed
+	 * @return RouteGroup
 	 */
-	public static function addGroup($prefix, callable $callback)
+	public static function addGroup($prefix, callable $callback): RouteGroup
 	{
 		return self::app()->group($prefix,$callback);
 	}
@@ -167,9 +174,9 @@ class AppFactory
 	 *
 	 * @param $prefix
 	 * @param callable $callback
-	 * @return \Gram\Route\RouteGroup
+	 * @return RouteGroup
 	 */
-	public static function group($prefix, callable $callback)
+	public static function group($prefix, callable $callback): RouteGroup
 	{
 		return self::app()->group($prefix,$callback);
 	}
@@ -180,9 +187,9 @@ class AppFactory
 	 * @param string $route
 	 * @param $controller
 	 * @param array $method
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function add(string $route,$controller,array $method)
+	public static function add(string $route,$controller,array $method): Route
 	{
 		return self::app()->add($route,$controller,$method);
 	}
@@ -192,9 +199,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function get(string $route,$controller)
+	public static function get(string $route,$controller): Route
 	{
 		return self::app()->get($route,$controller);
 	}
@@ -204,9 +211,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function post(string $route,$controller)
+	public static function post(string $route,$controller): Route
 	{
 		return self::app()->post($route,$controller);
 	}
@@ -216,9 +223,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function getpost(string $route,$controller)
+	public static function getpost(string $route,$controller): Route
 	{
 		return self::app()->getpost($route,$controller);
 	}
@@ -228,9 +235,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function delete(string $route,$controller)
+	public static function delete(string $route,$controller): Route
 	{
 		return self::app()->delete($route,$controller);
 	}
@@ -240,9 +247,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function put(string $route,$controller)
+	public static function put(string $route,$controller): Route
 	{
 		return self::app()->put($route,$controller);
 	}
@@ -252,9 +259,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function patch(string $route,$controller)
+	public static function patch(string $route,$controller): Route
 	{
 		return self::app()->patch($route,$controller);
 	}
@@ -264,9 +271,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function head(string $route,$controller)
+	public static function head(string $route,$controller): Route
 	{
 		return self::app()->head($route,$controller);
 	}
@@ -276,9 +283,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function options(string $route,$controller)
+	public static function options(string $route,$controller): Route
 	{
 		return self::app()->options($route,$controller);
 	}
@@ -288,9 +295,9 @@ class AppFactory
 	 *
 	 * @param string $route
 	 * @param $controller
-	 * @return \Gram\Route\Route
+	 * @return Route
 	 */
-	public static function any(string $route,$controller)
+	public static function any(string $route,$controller): Route
 	{
 		return self::app()->any($route,$controller);
 	}
@@ -326,13 +333,29 @@ class AppFactory
 	}
 
 	/**
+	 * @deprecated
+	 * use @see addMiddleware instead
+	 *
 	 * Setze Middleware die unabhänig der gematchten Route
 	 * ausgeführt wird
 	 *
-	 * @param $middleware
+	 * @param mixed $middleware
+	 * @return App
 	 */
 	public static function stdMiddleware($middleware)
 	{
-		self::app()->addMiddleware($middleware);
+		return self::app()->addMiddleware($middleware);
+	}
+
+	/**
+	 * Setze Middleware die unabhänig der gematchten Route
+	 * ausgeführt wird
+	 *
+	 * @param mixed $middleware
+	 * @return App
+	 */
+	public static function addMiddleware($middleware)
+	{
+		return self::app()->addMiddleware($middleware);
 	}
 }

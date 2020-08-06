@@ -149,6 +149,4 @@ abstract class AbstractAppTest extends TestCase
 		self::assertEquals("404",$status);
 		self::assertEquals("Not Found",$body);
 	}
-
-
 }

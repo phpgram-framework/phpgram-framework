@@ -7,3 +7,8 @@
 [![Packagist](https://img.shields.io/packagist/l/phpgram/framework)](https://gitlab.com/grammm/php-gram/phpgram-framework/blob/master/LICENSE)
 
 This is the App Factory for phpgram micro framework
+
+## Credits
+
+### Emitter
+- Based on [zend-httphandlerrunner](https://github.com/zendframework/zend-httphandlerrunner). Copyright [Zend Technologies USA, Inc. All rights reserved](https://github.com/zendframework/zend-httphandlerrunner/blob/master/LICENSE.md)

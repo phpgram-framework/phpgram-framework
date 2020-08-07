@@ -16,8 +16,8 @@
 namespace Gram\Project\App;
 
 use Gram\App\App;
-use Gram\App\Route\Route;
-use Gram\App\Route\RouteGroup;
+use Gram\Route\Route;
+use Gram\Route\RouteGroup;
 use Gram\ResolverCreator\ResolverCreatorInterface;
 use Gram\Strategy\StrategyInterface;
 use Psr\Container\ContainerInterface;

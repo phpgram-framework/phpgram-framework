@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram.git",
-                "reference": "22ec68590f4092fef529d1c8fcb534a75eb34b10"
+                "reference": "ff27f6567e14bf60be6b82d6a1ea08a0591e5b46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=22ec68590f4092fef529d1c8fcb534a75eb34b10",
-                "reference": "22ec68590f4092fef529d1c8fcb534a75eb34b10",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram/repository/archive.zip?sha=ff27f6567e14bf60be6b82d6a1ea08a0591e5b46",
+                "reference": "ff27f6567e14bf60be6b82d6a1ea08a0591e5b46",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 "psr 15",
                 "psr 7"
             ],
-            "time": "2020-08-06T16:30:59+00:00"
+            "time": "2020-08-07T09:35:54+00:00"
         },
         {
             "name": "phpgram/route",
@@ -81,12 +81,12 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/grammm/php-gram/phpgram-route.git",
-                "reference": "3499813aa121680fe7ee0662519d0fc214700952"
+                "reference": "f7c42f8d73619c949c220677c29bd4eac7a285ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram-route/repository/archive.zip?sha=3499813aa121680fe7ee0662519d0fc214700952",
-                "reference": "3499813aa121680fe7ee0662519d0fc214700952",
+                "url": "https://gitlab.com/api/v4/projects/grammm%2Fphp-gram%2Fphpgram-route/repository/archive.zip?sha=f7c42f8d73619c949c220677c29bd4eac7a285ef",
+                "reference": "f7c42f8d73619c949c220677c29bd4eac7a285ef",
                 "shasum": ""
             },
             "require": {
@@ -123,7 +123,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2020-08-06T16:20:37+00:00"
+            "time": "2020-08-07T09:05:14+00:00"
         },
         {
             "name": "psr/container",
